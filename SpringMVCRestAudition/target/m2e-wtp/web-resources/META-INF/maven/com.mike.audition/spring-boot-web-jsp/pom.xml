@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mike.audition</groupId>
+	<artifactId>spring-boot-web-jsp</artifactId>
+	<packaging>war</packaging>
+	<name>Spring Boot Web Audition</name>
+	<description>Spring Boot Web JSP + REST Audition</description>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<!-- Test -->
+		<junit.version>4.10</junit.version>
+	</properties>
+    <repositories>
+        <repository>
+            <id>spring</id>
+            <url>http://repo.spring.io/plugins-release</url>
+        </repository>
+    </repositories>
+	<dependencies>
+
+		<!-- Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-tomcat</artifactId> </exclusion> </exclusions> -->
+		</dependency>
+		<!-- Web with Tomcat + Embed -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<!-- Need this to compile JSP -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.eclipse.jetty</groupId> <artifactId>apache-jsp</artifactId> 
+			<scope>provided</scope> </dependency> -->
+
+		<!-- Optional, for bootstrap -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+		<!-- Genereate Wadl -->
+		<dependency>
+			<groupId>org.jvnet.ws.wadl</groupId>
+			<artifactId>wadl-core</artifactId>
+			<version>1.1.6</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.ws.wadl</groupId>
+			<artifactId>wadl-client-plugin</artifactId>
+			<version>1.1.6</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Testing dependency -->
+		<!-- <dependency> <groupId>com.thetransactioncompany</groupId> <artifactId>cors-filter</artifactId> 
+			<version>1.8</version> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		 <dependency> 
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version> 
+	</dependency>
+	<dependency>
+            <groupId>com.gemstone.gemfire</groupId>
+            <artifactId>gemfire</artifactId>
+            <version>8.2.4</version>
+        </dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- Package as an executable jar/war -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+	<reporting>
+		<plugins>
+			<!-- Normally, we take off the dependency report, saves time. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+
+			<!-- // integrate maven-cobertura-plugin to project site -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+						<format>xml</format>
+					</formats>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
