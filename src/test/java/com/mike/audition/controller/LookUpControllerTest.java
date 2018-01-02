@@ -71,7 +71,8 @@ public class LookUpControllerTest {
 	
 	}
 	
-	@Test
+
+	@Test(expected = NullPointerException.class)
 	public void testResultsNullSubmitAccess() {
 
 		String account = null;
